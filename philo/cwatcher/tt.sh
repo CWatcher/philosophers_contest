@@ -9,7 +9,7 @@
 OUTFILE=log/$2_$3_$4_$5_$6.$1.log
 ./philo $2 $3 $4 $5 $6 > $OUTFILE
 
-DEATH_MESSAGE=$(grep d $OUTFILE)
+DEATH_MESSAGE=$(grep 'died\|dead' $OUTFILE)
 LAST_MESSAGE=$(tail -n1 $OUTFILE)
 
 if [[ $DEATH_MESSAGE == "" || $DEATH_MESSAGE == $LAST_MESSAGE ]]; then
